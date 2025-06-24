@@ -13,7 +13,7 @@ const Footer = () => {
               &lt;Portfolio/&gt;
             </div>
             <p className="text-gray-400 text-sm">
-              Building the future, one line of code at a time.
+              Code with purpose. Build with impact.
             </p>
           </div>
 
