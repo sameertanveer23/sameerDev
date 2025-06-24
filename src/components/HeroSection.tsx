@@ -73,7 +73,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12">
             <button className="cyber-button">
               <a
-                href="src/assets/Sameer Tanveer Resume.pdf"
+                href="assets/Sameer Tanveer Resume.pdf"
                 download="Sameer Tanveer Resume.pdf"
               >
                 <span>Download Resume</span>

@@ -10,7 +10,7 @@ const ProjectsSection = () => {
       description:
         "CarePath is a multi-tenant, serverless platform on Azure that enables remote void submissions for Urology patients, improving convenience and efficiency.",
       tech: [".net Core 8", "Angular 14", "Azure Services", "Twilio"],
-      image: "src/assets/carepath.webp",
+      image: "assets/carepath.webp",
       demoUrl: "#",
       githubUrl: "#",
     },
@@ -19,7 +19,7 @@ const ProjectsSection = () => {
       description:
         "Jani Motors is a U.S.-based car rental and sales platform with features for browsing, buying, selling, and financing vehicles.",
       tech: [".net Core WebApi", "React", "MongoDB"],
-      image: "src/assets/janimotors.webp",
+      image: "assets/janimotors.webp",
       demoUrl: "#",
       githubUrl: "#",
     },
@@ -28,7 +28,7 @@ const ProjectsSection = () => {
       description:
         "XamIQ is a platform for educational institutions, offering end-to-end exam management, scheduling, billing,  across multi-institute setups.",
       tech: [".Net Core 8", "Angular 17", "MySQL"],
-      image: "src/assets/xamiq.webp",
+      image: "assets/xamiq.webp",
       demoUrl: "#",
       githubUrl: "#",
     },
