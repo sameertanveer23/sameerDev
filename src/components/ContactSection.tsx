@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { CalendarDays, Mail, MapPin, Phone, MousePointer } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -53,6 +53,30 @@ const ContactSection = () => {
                   <div className="text-sm text-gray-400">Location</div>
                   <div className="text-white font-mono">Lahore, Pakistan</div>
                 </div>
+              </div>
+              <div>
+                <a
+                  href="https://calendly.com/sameertanveer23/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-4 group cursor-pointer rounded-lg p-2 -ml-2"
+                >
+                  <div className="p-3 bg-cyber-green/20 rounded-full">
+                    <CalendarDays className="text-neon-blue" size={20} />
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-400 ">
+                      Schedule Free Consultation
+                    </div>
+                    <div className="text-white font-mono flex items-center gap-1">
+                      Go to Calendly
+                      <MousePointer
+                        className="text-cyber-green group-hover:scale-110 transition-transform"
+                        size={16}
+                      />
+                    </div>
+                  </div>
+                </a>
               </div>
             </div>
 
