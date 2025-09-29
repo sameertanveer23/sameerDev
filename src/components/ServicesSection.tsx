@@ -74,7 +74,7 @@ const ServicesSection: React.FC = () => {
     <section id="services" className="services-section py-5 bg-dark-surface/50">
       <div className="container-width section-padding">
         <h2 className="text-4xl md:text-5xl font-bold gradient-text text-center mb-16">
-          Services
+          Services.provide()
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {servicesData.map((service) => (
