@@ -16,7 +16,7 @@ const testimonials = [
   },
   {
     name: "Muzammil Ashfaq",
-    role: "Senior Software Engineer, DevSolutions",
+    role: "Senior Software Engineer, Technosoft Solutions",
     feedback:
       "Sameer brings a rare mix of technical depth and problem-solving acumen. His ability to deliver solutions under tight deadlines has consistently added value to our projects. A reliable engineer and a great team player",
     avatar: "https://randomuser.me/api/portraits/women/68.jpg",

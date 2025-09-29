@@ -66,7 +66,31 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        {/* Additional Skills */}
+        {/* Other Tools & Platforms */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold text-white mb-8">
+            Other Tools & Platforms
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              "Twilio",
+              "SendGrid",
+              "EasyPost",
+              "Redis",
+              "MQTT",
+              "QuestPdf",
+            ].map((tool, index) => (
+              <div
+                key={index}
+                className="neon-border p-3 bg-dark-bg/50 rounded-lg text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all duration-300"
+              >
+                {tool}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Additional Technologies */}
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold text-white mb-8">
             Additional Technologies
@@ -83,6 +107,7 @@ const SkillsSection = () => {
               "CosmosDb",
               "Sql Server",
               "PostgreSQL",
+              "SignalR",
               "Jira",
               "Azure DevOps",
               "BitBucket",

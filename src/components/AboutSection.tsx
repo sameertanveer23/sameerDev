@@ -20,7 +20,7 @@ const AboutSection = () => {
               </p>
 
               <p>
-                With over 2 years of hands-on experience, I’ve delivered secure,
+                With over 3 years of hands-on experience, I’ve delivered secure,
                 enterprise-grade web applications across healthcare and SaaS
                 domains. I prioritize clean code, performance optimization, and
                 scalable system design.
@@ -61,7 +61,7 @@ const AboutSection = () => {
                   </div>
                 </div>
                 <div className="neon-border p-4 text-center">
-                  <div className="text-2xl font-bold text-neon-blue">2+</div>
+                  <div className="text-2xl font-bold text-neon-blue">3+</div>
                   <div className="text-sm text-gray-400">Years Experience</div>
                 </div>
               </div>
