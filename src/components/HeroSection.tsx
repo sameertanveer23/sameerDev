@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const fullText = "Software Engineer (.net)";
 
   useEffect(() => {
@@ -23,6 +24,13 @@ const HeroSection = () => {
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleDownload = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Simulate loading for 2 seconds
   };
 
   return (
@@ -64,20 +72,27 @@ const HeroSection = () => {
 
           {/* Tagline */}
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-            Software Engineer with 2+ years in .NET Core, Angular, and Azure.
+            Software Engineer with 3+ years in .NET Core, Angular, and Azure.
             Focused on building scalable solutions to solve real-world problems
             .
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12">
-            <button className="cyber-button">
+            <button
+              className="cyber-button relative flex items-center justify-center"
+              onClick={handleDownload}
+            >
               <a
                 href="assets/Sameer Tanveer Resume.pdf"
                 download="Sameer Tanveer Resume.pdf"
+                className="flex items-center justify-center"
               >
                 <span>Download Resume</span>
               </a>
+              {isLoading && (
+                <span className="ml-2 loader border-t-2 border-neon-blue rounded-full w-4 h-4 animate-spin"></span>
+              )}
             </button>
           </div>
         </div>
