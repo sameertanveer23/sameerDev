@@ -88,7 +88,7 @@ const ContactSection = () => {
                 <div className="flex items-center space-x-2 text-cyber-green">
                   <span className="w-2 h-2 bg-cyber-green rounded-full animate-pulse"></span>
                   <span className="font-mono text-sm">
-                    Usually responds within 24 hours
+                    Usually responds within 2-3 hours
                   </span>
                 </div>
               </div>

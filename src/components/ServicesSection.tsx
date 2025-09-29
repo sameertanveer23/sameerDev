@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Code,
   Database,
@@ -71,7 +71,7 @@ const servicesData = [
 
 const ServicesSection: React.FC = () => {
   return (
-    <section className="services-section py-5 bg-dark-surface/50">
+    <section id="services" className="services-section py-5 bg-dark-surface/50">
       <div className="container-width section-padding">
         <h2 className="text-4xl md:text-5xl font-bold gradient-text text-center mb-16">
           Services
