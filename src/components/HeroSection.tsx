@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const fullText = "Software Engineer (.net)";
+  const fullText = "Software Engineer";
 
   useEffect(() => {
     let index = 0;
@@ -30,7 +30,7 @@ const HeroSection = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Simulate loading for 2 seconds
+    }, 2000);
   };
 
   return (
@@ -84,7 +84,8 @@ const HeroSection = () => {
               onClick={handleDownload}
             >
               <a
-                href="assets/Sameer Tanveer Resume.pdf"
+                href="https://drive.google.com/file/d/1z7AklG1I6drNR_vrqJN8PlCe0nBuD-6k/view?usp=sharing"
+                target="_blank"
                 download="Sameer Tanveer Resume.pdf"
                 className="flex items-center justify-center"
               >

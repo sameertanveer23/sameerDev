@@ -1,15 +1,22 @@
 import { ExternalLink, Github, Download } from "lucide-react";
 import { useState } from "react";
 
+const ProjectBadges = {
+  PART_OF_DEV_TEAM: "Part Of Dev Team",
+  BUILD_FROM_SCRATCH: "Built From Scratch",
+  TEAM_LEAD: "Team Lead",
+  MIGRATION_WORK: "Migration Work",
+};
+
 const ProjectsSection = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
-
   const mainProjects = [
     {
       title: "CarePath",
       description:
         "CarePath is a multi-tenant, serverless platform on Azure that enables remote void submissions for Urology patients, improving convenience and efficiency.",
       tech: [".net Core 8", "Angular 14", "Azure Services", "Twilio"],
+      badges: [ProjectBadges.PART_OF_DEV_TEAM],
       image: "assets/carepath.webp",
       demoUrl: "#",
       githubUrl: "#",
@@ -19,6 +26,7 @@ const ProjectsSection = () => {
       description:
         "Jani Motors is a U.S.-based car rental and sales platform with features for browsing, buying, selling, and financing vehicles.",
       tech: [".net Core WebApi", "React", "MongoDB"],
+      badges: [ProjectBadges.TEAM_LEAD, ProjectBadges.BUILD_FROM_SCRATCH],
       image: "assets/janimotors.webp",
       demoUrl: "#",
       githubUrl: "#",
@@ -28,6 +36,7 @@ const ProjectsSection = () => {
       description:
         "XamIQ is a platform for educational institutions, offering end-to-end exam management, scheduling, billing,  across multi-institute setups.",
       tech: [".Net Core 8", "Angular 17", "MySQL"],
+      badges: [ProjectBadges.BUILD_FROM_SCRATCH],
       image: "assets/xamiq.webp",
       demoUrl: "#",
       githubUrl: "#",
@@ -35,31 +44,21 @@ const ProjectsSection = () => {
   ];
 
   const additionalProjects = [
-    // {
-    //   title: "Blockchain Explorer",
-    //   description:
-    //     "Advanced blockchain analysis tool with transaction tracking and wallet monitoring capabilities.",
-    //   tech: ["React", "Node.js", "Web3.js", "Redis"],
-    //   image:
-    //     "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop",
-    //   demoUrl: "#",
-    //   githubUrl: "#",
-    // },
+    {
+      title: "Marasem",
+      description:
+        "A utility site for malls in Makkah, Saudi Arab. Marasem Supports multi-lingual UI. Migrated to .Net & Angular ",
+      tech: [".Net Core 9", "Angular v20"],
+      badges: [ProjectBadges.MIGRATION_WORK, ProjectBadges.BUILD_FROM_SCRATCH],
+      image: "assets/marasem.webp",
+      demoUrl: "https://marasem-ui.vercel.app/",
+      githubUrl: "#",
+    },
   ];
 
   const allProjects = showAllProjects
     ? [...mainProjects, ...additionalProjects]
     : mainProjects;
-
-  const handleDownloadResume = () => {
-    // Create a dummy PDF download
-    const link = document.createElement("a");
-    link.href = "#"; // In a real app, this would be the actual resume URL
-    link.download = "Alex_Cipher_Resume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   return (
     <section id="projects" className="py-20">
@@ -85,7 +84,19 @@ const ProjectsSection = () => {
               </div>
 
               {/* Project Info */}
-              <div className="p-6">
+              <div className="p-6 flex flex-col h-full">
+                {/* Badges */}
+                <div className="flex flex-wrap gap-2 mb-4 ml-auto">
+                  {project.badges &&
+                    project.badges.map((badge, badgeIndex) => (
+                      <span
+                        key={badgeIndex}
+                        className="px-2 py-1 text-xs bg-neon-blue/10 text-neon-blue border border-neon-blue/50 rounded-md font-medium"
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                </div>
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-neon-blue transition-colors">
                   {project.title}
                 </h3>
@@ -94,7 +105,7 @@ const ProjectsSection = () => {
                 </p>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech, techIndex) => (
                     <span
                       key={techIndex}
@@ -104,20 +115,35 @@ const ProjectsSection = () => {
                     </span>
                   ))}
                 </div>
+
+                {/* Demo Button - Bottom Left */}
+                <div className="ml-auto">
+                  {project.demoUrl && project.demoUrl !== "#" && (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-neon-blue/10 hover:bg-neon-blue/20 text-neon-blue border border-neon-blue/50 hover:border-neon-blue rounded-md transition-all duration-300"
+                    >
+                      <span className="text-sm font-medium">Demo</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-12 space-y-6">
-          {/* <button
+          <button
             onClick={() => setShowAllProjects(!showAllProjects)}
             className="cyber-button mr-4"
           >
             <span>
               {showAllProjects ? "Show Less Projects" : "View All Projects"}
             </span>
-          </button> */}
+          </button>
         </div>
       </div>
     </section>
