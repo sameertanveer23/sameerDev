@@ -1,96 +1,69 @@
-import { Crown, Dumbbell, MonitorSmartphone } from "lucide-react";
+import { Dumbbell, MonitorSmartphone, Crown } from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-dark-surface/50">
+    <section id="about" className="py-24 bg-[#F7F7F8]">
       <div className="container-width section-padding">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-8">
-              About.exe
-            </h2>
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div>
+            <p className="text-[#A1A1AA] text-sm uppercase tracking-widest mb-4 font-mono">Who I am</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#18181B] mb-8 tracking-tight">About</h2>
 
-            <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
+            <div className="space-y-5 text-[#52525B] text-lg leading-relaxed">
               <p>
-                I'm a Software Engineer specializing in .NET Core, Angular, and
-                Azure—driven to build intelligent, scalable solutions. I thrive
-                at the intersection of clean architecture and emerging
-                technologies.
+                I'm a software engineer specializing in .NET Core, Angular, and Azure.
+                I build secure, scalable web applications for healthcare and SaaS domains.
               </p>
-
               <p>
-                With over 3 years of hands-on experience, I’ve delivered secure,
-                enterprise-grade web applications across healthcare and SaaS
-                domains. I prioritize clean code, performance optimization, and
-                scalable system design.
+                Over 3+ years I've worked across the full stack — database architecture,
+                API design, frontend performance, and Azure deployments. I embrace AI-first
+                development and use Claude Code daily to ship faster without sacrificing code quality.
               </p>
-
               <p>
-                When I’m not coding, I’m either
-                <span className="inline-flex items-center gap-1 mx-1">
-                  <Dumbbell className="inline text-neon-purple" size={18} />{" "}
-                  lifting weights
-                </span>
-                ,
-                <span className="inline-flex items-center gap-1 mx-1">
-                  <MonitorSmartphone
-                    className="inline text-neon-blue"
-                    size={18}
-                  />{" "}
-                  exploring tech innovations
-                </span>
-                , or
-                <span className="inline-flex items-center gap-1 mx-1">
-                  <Crown className="inline text-cyber-green" size={18} />{" "}
-                  playing chess
-                </span>
-                .
+                Outside work: I lift, play chess, and keep up with what's happening in tech.
               </p>
-            </div>
-
-            <div className="pt-6">
-              <h3 className="text-xl font-semibold text-neon-blue mb-4">
-                Quick Stats
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="neon-border p-4 text-center">
-                  <div className="text-2xl font-bold text-neon-purple">10+</div>
-                  <div className="text-sm text-gray-400">
-                    Projects Completed
-                  </div>
-                </div>
-                <div className="neon-border p-4 text-center">
-                  <div className="text-2xl font-bold text-neon-blue">3+</div>
-                  <div className="text-sm text-gray-400">Years Experience</div>
-                </div>
-              </div>
             </div>
           </div>
 
-          {/* Visual Element */}
-          <div className="relative">
-            <div className="neon-border p-8 bg-dark-bg/50">
-              <div className="space-y-4">
-                <div className="flex items-center space-x-2 text-cyber-green">
-                  <span className="w-3 h-3 bg-cyber-green rounded-full animate-pulse"></span>
-                  <span className="font-mono">&gt; System Status: ONLINE</span>
-                </div>
-                <div className="text-gray-400 font-mono text-sm space-y-2">
-                  <div>&gt; Initializing neural networks...</div>
-                  <div>&gt; Loading creativity modules... ✓</div>
-                  <div>&gt; Optimizing problem-solving algorithms... ✓</div>
-                  <div>&gt; Establishing coffee connection... ✓</div>
-                  <div className="text-neon-blue">
-                    &gt; Ready to build the future.
-                  </div>
-                </div>
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-white border border-[#E4E4E7] rounded-xl p-6">
+                <div className="text-3xl font-bold text-[#D97706] mb-1">3+</div>
+                <div className="text-[#71717A] text-base">Years of experience</div>
               </div>
+              <div className="bg-white border border-[#E4E4E7] rounded-xl p-6">
+                <div className="text-3xl font-bold text-[#D97706] mb-1">10+</div>
+                <div className="text-[#71717A] text-base">Projects shipped</div>
+              </div>
+            </div>
 
-              <div className="mt-6 pt-6 border-t border-gray-700">
-                <div className="text-xs text-gray-500 font-mono">
-                  [CORE_MODULES]: .Net | Angular
-                </div>
+            <div className="bg-white border border-[#E4E4E7] rounded-xl p-6 space-y-4">
+              <p className="text-[#A1A1AA] text-sm uppercase tracking-widest font-mono">Core stack</p>
+              <div className="flex flex-wrap gap-2">
+                {[".NET Core", "Angular", "Azure", "TypeScript", "SQL", "C#"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 bg-[#F4F4F5] border border-[#E4E4E7] rounded-full text-[#52525B] text-sm font-mono"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white border border-[#E4E4E7] rounded-xl p-6 space-y-3">
+              <p className="text-[#A1A1AA] text-sm uppercase tracking-widest font-mono">Off the clock</p>
+              <div className="flex items-center gap-3 text-[#52525B] text-base">
+                <Dumbbell size={15} className="text-[#D97706] shrink-0" />
+                Lifting weights
+              </div>
+              <div className="flex items-center gap-3 text-[#52525B] text-base">
+                <Crown size={15} className="text-[#D97706] shrink-0" />
+                Playing chess
+              </div>
+              <div className="flex items-center gap-3 text-[#52525B] text-base">
+                <MonitorSmartphone size={15} className="text-[#D97706] shrink-0" />
+                Exploring tech
               </div>
             </div>
           </div>

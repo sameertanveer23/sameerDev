@@ -3,37 +3,35 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
-
 @layer base {
   :root {
-    --background: 10 10 11;
-    --foreground: 250 250 250;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 7%;
 
-    --card: 26 26 27;
-    --card-foreground: 250 250 250;
+    --card: 0 0% 97%;
+    --card-foreground: 240 10% 7%;
 
-    --popover: 26 26 27;
-    --popover-foreground: 250 250 250;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 7%;
 
-    --primary: 199 100 50;
-    --primary-foreground: 10 10 11;
+    --primary: 38 95% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 39 39 42;
-    --secondary-foreground: 250 250 250;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 7%;
 
-    --muted: 39 39 42;
-    --muted-foreground: 161 161 170;
+    --muted: 240 5% 94%;
+    --muted-foreground: 240 4% 46%;
 
-    --accent: 39 39 42;
-    --accent-foreground: 250 250 250;
+    --accent: 240 5% 94%;
+    --accent-foreground: 240 10% 7%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 250 250 250;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 39 39 42;
-    --input: 39 39 42;
-    --ring: 199 100 50;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 38 95% 45%;
 
     --radius: 0.5rem;
   }
@@ -49,87 +47,46 @@
   }
 
   body {
-    @apply bg-dark-bg text-foreground font-mono;
-    background: linear-gradient(135deg, #0A0A0B 0%, #1A1A1B 100%);
+    background-color: #FFFFFF;
+    color: #18181B;
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
     min-height: 100vh;
   }
 
-  /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #1A1A1B;
+    background: #F4F4F5;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #00D4FF, #B026FF);
-    border-radius: 10px;
+    background: #D4D4D8;
+    border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #B026FF, #00D4FF);
+    background: #A1A1AA;
   }
 }
 
 @layer components {
   .section-padding {
-    @apply px-4 md:px-6 lg:px-8 xl:px-12;
+    @apply px-4 md:px-8 lg:px-12 xl:px-16;
   }
 
   .container-width {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-6xl mx-auto;
   }
 
-  .gradient-text {
-    background: linear-gradient(45deg, #00D4FF, #B026FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-[#D97706] text-white text-base font-medium rounded-lg hover:bg-[#B45309] transition-colors duration-200;
   }
 
-  .neon-border {
-    border: 1px solid transparent;
-    background: linear-gradient(#1A1A1B, #1A1A1B) padding-box,
-                linear-gradient(45deg, #00D4FF, #B026FF) border-box;
-  }
-
-  .cyber-button {
-    @apply relative overflow-hidden px-6 py-3 font-mono font-medium transition-all duration-300;
-    background: linear-gradient(45deg, #00D4FF, #B026FF);
-    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
-  }
-
-  .cyber-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
-  }
-
-  .cyber-button::before {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    right: 1px;
-    bottom: 1px;
-    background: #1A1A1B;
-    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
-    transition: all 0.3s;
-  }
-
-  .cyber-button:hover::before {
-    background: transparent;
-  }
-
-  .cyber-button span {
-    position: relative;
-    z-index: 1;
-    color: #00D4FF;
-    transition: color 0.3s;
-  }
-
-  .cyber-button:hover span {
-    color: #0A0A0B;
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 border border-[#D4D4D8] text-[#18181B] text-base rounded-lg hover:border-[#A1A1AA] hover:bg-[#F7F7F8] transition-colors duration-200;
   }
 }

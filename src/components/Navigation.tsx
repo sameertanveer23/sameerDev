@@ -6,7 +6,6 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
     { name: "Services", href: "#services" },
@@ -14,73 +13,77 @@ const Navigation = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
   };
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-dark-bg/95 backdrop-blur-md shadow-lg"
+          ? "bg-white/95 backdrop-blur-sm border-b border-[#E4E4E7]"
           : "bg-transparent"
       }`}
     >
       <div className="container-width section-padding">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="text-xl font-bold gradient-text">
-            &lt;Portfolio/&gt;
-          </div>
+          <button
+            onClick={() => scrollToSection("#home")}
+            className="text-base font-semibold text-[#18181B] tracking-wide"
+          >
+            Sameer Tanveer
+          </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-300 hover:text-neon-blue transition-colors duration-300 relative group"
+                className="text-base text-[#71717A] hover:text-[#18181B] transition-colors duration-200"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-neon-blue to-neon-purple transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
+            <button
+              onClick={() => scrollToSection("#contact")}
+              className="text-base px-4 py-1.5 border border-[#D4D4D8] text-[#18181B] rounded-lg hover:border-[#A1A1AA] hover:bg-[#F7F7F8] transition-colors duration-200"
+            >
+              Hire me
+            </button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-gray-300 hover:text-neon-blue transition-colors"
+            className="md:hidden text-[#71717A] hover:text-[#18181B] transition-colors"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-800">
-            <div className="flex flex-col space-y-4 mt-4">
+          <div className="md:hidden pb-4 border-t border-[#E4E4E7]">
+            <div className="flex flex-col gap-4 pt-4">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-gray-300 hover:text-neon-blue transition-colors duration-300"
+                  className="text-left text-base text-[#71717A] hover:text-[#18181B] transition-colors"
                 >
                   {item.name}
                 </button>
               ))}
+              <button
+                onClick={() => scrollToSection("#contact")}
+                className="text-left text-base text-[#D97706]"
+              >
+                Hire me →
+              </button>
             </div>
           </div>
         )}

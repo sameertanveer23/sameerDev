@@ -1,103 +1,80 @@
 import { useEffect, useState } from "react";
+import { ArrowDown } from "lucide-react";
+
+const roles = ["Software Engineer", ".NET Developer", "Angular Developer", "AI-First Developer"];
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const fullText = "Software Engineer";
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setDisplayText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 100);
+    const fullText = roles[roleIndex];
+    let timer: ReturnType<typeof setTimeout>;
 
-    return () => clearInterval(timer);
-  }, []);
+    if (!isDeleting && displayText.length < fullText.length) {
+      timer = setTimeout(() => setDisplayText(fullText.slice(0, displayText.length + 1)), 90);
+    } else if (!isDeleting && displayText.length === fullText.length) {
+      timer = setTimeout(() => setIsDeleting(true), 2200);
+    } else if (isDeleting && displayText.length > 0) {
+      timer = setTimeout(() => setDisplayText(displayText.slice(0, -1)), 45);
+    } else {
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, roleIndex]);
 
   const scrollToAbout = () => {
-    const aboutSection = document.querySelector("#about");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleDownload = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-    >
-      {/* Background grid effect */}
-      <div className="absolute inset-0 opacity-20">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: "50px 50px",
-          }}
-        ></div>
-      </div>
-
-      {/* Floating orbs */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-neon-blue/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-purple/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-
-      <div className="section-padding container-width relative z-10">
-        <div className="text-center space-y-8 animate-fade-in">
-          {/* Name */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold gradient-text mb-4">
-            SAMEER TANVEER
-          </h1>
-
-          {/* Typing effect title */}
-          <div className="text-2xl md:text-4xl text-gray-300 h-16 flex items-center justify-center">
-            <span className="border-r-2 border-neon-blue animate-pulse pr-2">
-              {displayText}
-            </span>
-          </div>
-
-          {/* Tagline */}
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-            Software Engineer with 3+ years in .NET Core, Angular, and Azure.
-            Focused on building scalable solutions to solve real-world problems
-            .
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center relative">
+      <div className="section-padding container-width w-full">
+        <div className="max-w-3xl animate-fade-in">
+          <p className="text-[#A1A1AA] text-sm uppercase tracking-widest mb-8 font-mono">
+            Lahore, Pakistan
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12">
-            <button
-              className="cyber-button relative flex items-center justify-center"
-              onClick={handleDownload}
+          <h1 className="text-6xl md:text-8xl font-bold text-[#18181B] leading-[1.05] mb-6 tracking-tight">
+            Sameer<br />Tanveer
+          </h1>
+
+          <div className="flex items-center gap-2 text-xl md:text-2xl text-[#71717A] mb-8 h-9 font-mono">
+            <span>{displayText}</span>
+            <span className="w-0.5 h-6 bg-[#D97706] animate-pulse inline-block" />
+          </div>
+
+          <p className="text-[#71717A] text-xl max-w-xl mb-10 leading-relaxed">
+            3+ years building scalable web apps with .NET Core, Angular, and Azure.
+            Focused on healthcare and enterprise software.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="https://drive.google.com/file/d/1z7AklG1I6drNR_vrqJN8PlCe0nBuD-6k/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
             >
-              <a
-                href="https://drive.google.com/file/d/1z7AklG1I6drNR_vrqJN8PlCe0nBuD-6k/view?usp=sharing"
-                target="_blank"
-                download="Sameer Tanveer Resume.pdf"
-                className="flex items-center justify-center"
-              >
-                <span>Download Resume</span>
-              </a>
-              {isLoading && (
-                <span className="ml-2 loader border-t-2 border-neon-blue rounded-full w-4 h-4 animate-spin"></span>
-              )}
+              Download Resume
+            </a>
+            <button onClick={scrollToAbout} className="btn-secondary">
+              See my work
             </button>
           </div>
         </div>
       </div>
+
+      <button
+        onClick={scrollToAbout}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[#D4D4D8] hover:text-[#A1A1AA] transition-colors animate-bounce"
+        aria-label="Scroll down"
+      >
+        <ArrowDown size={22} />
+      </button>
     </section>
   );
 };
