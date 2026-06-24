@@ -13,6 +13,18 @@ const certifications = [
     image: "assets/claude-code-101.webp",
     verifyUrl: "https://verify.skilljar.com/c/mjhnje892a2y",
   },
+  {
+    title: "AI Fluency: Framework & Foundations",
+    issuer: "Anthropic",
+    image: "assets/ai-fluency.webp",
+    verifyUrl: "https://verify.skilljar.com/c/7e9wmucjev6s",
+  },
+  {
+    title: "Claude Code in action",
+    issuer: "Anthropic",
+    image: "assets/claude-code-in-action.webp",
+    verifyUrl: "https://verify.skilljar.com/c/8vb9xaa46fsw",
+  },
 ];
 
 const CertificationsSection = () => {
